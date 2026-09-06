@@ -84,10 +84,10 @@ function displayActivity(events) {
     const { type, repo, payload, created_at } = event;
     
     switch (type) {
-      case 'PushEvent':
-        const commitCount = payload.commits.length;
-        console.log(`  ${index + 1}. Pushed ${commitCount} commit${commitCount > 1 ? 's' : ''} to ${repo.name}`);
-        break;
+  case 'PushEvent':
+    const commitCount = payload.commits ? payload.commits.length : 0;
+    console.log(`  ${index + 1}. Pushed ${commitCount} commit${commitCount > 1 ? 's' : ''} to ${repo.name}`);
+    break;
       
       case 'IssuesEvent':
         console.log(`  ${index + 1}. ${payload.action} an issue in ${repo.name}`);
