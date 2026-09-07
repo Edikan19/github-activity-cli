@@ -1,168 +1,86 @@
-# \# GitHub Activity CLI
+# GitHub Activity CLI
+A simple command-line interface to fetch and display recent activity of any GitHub user.
 
-# 
+# Features
+# Displays GitHub Activity - Shows recent events like:
+- Commits pushed to repositories
+- Issues opened/closed
+- Pull requests created/merged
+- Repository stars (watches)
+- Repository forks
+- Repository creations
 
-# A simple command-line interface to fetch and display recent activity of any GitHub user.
+# Error Handling - Gracefully handles:
+- Invalid GitHub usernames (404)
+- API rate limiting (403)
+- Network errors
+- Missing username argument
 
-# 
+# Optional Authentication - Supports GitHub personal access tokens to avoid rate limiting
 
-# \## Features
 
-# 
+# Installation
 
-# &#x20;\*\*Displays GitHub Activity\*\* - Shows recent events like:
+# 1. Clone this repository:
+ bash
+ 
+git clone https://github.com/Edikan19/github-activity-cli.git
 
-# \- Commits pushed to repositories
+cd github-activity-cli
+ 
+# 2. Install (optional, for global access):
+bash
 
-# \- Issues opened/closed
+npm install -g .
 
-# \- Pull requests created/merged
+# Usage
 
-# \- Repository stars (watches)
+# Basic Usage (without authentication)
+bash
 
-# \- Repository forks
+node index.js <username>
+# Example:
+bash
 
-# \- Repository creations
+node index.js octocat
 
-# 
+# With GitHub Token (Recommended)
+To avoid rate limiting, set your GitHub personal access token:
 
-# &#x20;\*\*Error Handling\*\* - Gracefully handles:
+bash
 
-# \- Invalid GitHub usernames (404)
-
-# \- API rate limiting (403)
-
-# \- Network errors
-
-# \- Missing username argument
-
-# 
-
-# &#x20;\*\*Optional Authentication\*\* - Supports GitHub personal access tokens to avoid rate limiting
-
-# 
-
-# \## Installation
-
-# 
-
-# 1\. Clone this repository:
-
-# ```bash
-
-# &#x20;  git clone https://github.com/YOUR\_USERNAME/github-activity-cli.git
-
-# &#x20;  cd github-activity-cli
-
-# ```
-
-# 
-
-# 2\. Install (optional, for global access):
-
-# ```bash
-
-# &#x20;  npm install -g .
-
-# ```
-
-# 
-
-# \## Usage
-
-# 
-
-# \### Basic Usage (without authentication)
-
-# 
-
-# ```bash
-
-# node index.js <username>
-
-# ```
-
-# 
-
-# \*\*Example:\*\*
-
-# ```bash
-
-# node index.js octocat
-
-# ```
-
-# 
-
-# \### With GitHub Token (Recommended)
-
-# 
-
-# To avoid rate limiting, set your GitHub personal access token:
-
-# 
-
-# ```bash
-
-# export GITHUB\_TOKEN=your\_token\_here
-
-# node index.js <username>
-
-# ```
-
-# 
+export GITHUB\_TOKEN=your\_token\_here
+node index.js <username>
 
 # On Windows (Command Prompt):
 
-# ```cmd
+cmd
 
-# set GITHUB\_TOKEN=your\_token\_here
-
-# node index.js <username>
-
-# ```
-
-# 
+set GITHUB\_TOKEN=your\_token\_here
+node index.js <username>
 
 # On Windows (PowerShell):
 
-# ```powershell
+powershell
 
-# $env:GITHUB\_TOKEN="your\_token\_here"
+$env:GITHUB\_TOKEN="your\_token\_here"
+node index.js <username>
 
-# node index.js <username>
+# If Installed Globally
 
-# ```
+bash
 
-# 
+github-activity <username>
 
-# \### If Installed Globally
+#  Getting a GitHub Personal Access Token
 
-# 
+1. Go to \[GitHub Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens)
+2. Click "Generate new token"
+3. Select the `public\_repo` scope
 
-# ```bash
+# 4. Copy the token and use it as shown above
 
-# github-activity <username>
-
-# ```
-
-# 
-
-# \## Getting a GitHub Personal Access Token
-
-# 
-
-# 1\. Go to \[GitHub Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens)
-
-# 2\. Click "Generate new token"
-
-# 3\. Select the `public\_repo` scope
-
-# 4\. Copy the token and use it as shown above
-
-# 
-
-# \## Output Example
+# Output Example
 Fetching activity for user: octocat...
 
 Recent activity for octocat:
